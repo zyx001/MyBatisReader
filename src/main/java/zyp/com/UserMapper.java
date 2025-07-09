@@ -10,4 +10,6 @@ public interface UserMapper {
 
     List<User> queryUserBySchoolName(User user);
 
+    void mapperTest(User user);
+
 }

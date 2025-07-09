@@ -8,4 +8,21 @@
     <select id="queryUserBySchoolName" resultType="zyp.com.User">
         select * from `user` where schoolName = #{schoolName}
     </select>
+
+    <sql id="test">
+        from ${table_name}
+    </sql>
+
+    <insert id = "mapperTest">
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select author_seq.nextval from dual
+        </selectKey>
+        insert into
+         <include refid="test" >
+             <property name="table_name" value="user"/>
+         </include>
+        (id, name, password)
+        values
+        (#{id}, #{username}, #{password}
+    </insert>
 </mapper>
